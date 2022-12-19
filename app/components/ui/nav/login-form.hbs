@@ -1,0 +1,20 @@
+<form class="space-y-6 mx-8 py-4" {{on 'submit' this.send}}>
+	<h2 class="text-xl text-center">Message: {{this.message}}</h2>
+	<div>
+		<label for="wallet-address" class="block text-sm font-medium text-gray-700">Wallet Address</label>
+		<div class="mt-1">
+			<Input id="wallet-address" @value={{this.address}} class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" />
+		</div>
+	</div>
+
+	<div>
+		<label for="signature" class="block text-sm font-medium text-gray-700">Signature</label>
+		<div class="mt-1">
+			<Input id="signature" @value={{this.signature}} class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" />
+		</div>
+	</div>
+
+	<div>
+		<button class="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Validate Wallet</button>
+	</div>
+</form>
