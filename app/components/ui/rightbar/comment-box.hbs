@@ -1,6 +1,6 @@
 <aside class="hidden xl:col-span-3 xl:block">
 	<div>
-		<Ui::Rightbar::Comments />
-		<Ui::Rightbar::CommentForm />
+		<Ui::Rightbar::Comments @comments={{this.args.post.comments}}/>
+		<Ui::Rightbar::CommentForm @post={{this.args.post}}/>
 	</div>
 </aside>
