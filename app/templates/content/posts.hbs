@@ -1,5 +1,6 @@
 {{page-title "Posts"}}
-	{{#each this.model as |post|}}
+	<h1 class="text-2xl">{{this.model.title}}</h1>
+	{{#each this.model.posts as |post|}}
 		<LinkTo @route="post" @model={{post.id}}>
 			<Posts::Post @title={{post.title}} @walletId={{post.walletId}} @/>
 		</LinkTo>
