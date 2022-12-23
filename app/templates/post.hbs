@@ -1,0 +1,13 @@
+{{page-title "Post"}}
+<div class="py-6">
+	<div class="mx-auto max-w-3xl">
+		<h1 class="text-xl">{{this.model.title}}</h1>
+		<p class="text-sm text-gray-500">{{this.model.content}}</p>
+
+		<Ui::Rightbar::CommentBox
+			@post={{this.model}}
+			@submitComment={{this.submitComment}}
+		/>
+	</div>
+</div>
+
