@@ -2,7 +2,7 @@ import RESTAdapter from '@ember-data/adapter/rest';
 import { singularize } from 'ember-inflector';
 
 export default class ApplicationAdapter extends RESTAdapter {
-	namespace = 'api/auth';
+	namespace = 'api';
 	pathForType(modelName) {
 		return singularize(modelName);
 	}
