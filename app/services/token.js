@@ -12,7 +12,7 @@ export default class TokenService extends Service {
 	@service router;
 
 	validateWallet(payload) {
-		fetch('http://localhost:3100/api/auth/validate-wallet', {
+		fetch('http://localhost:3100/api/validate-wallet', {
 			method: 'POST',
 			headers: {
 				'Content-type': 'application/json',
