@@ -7,20 +7,13 @@ module('Integration | Component | ui/nav/nav-login', function (hooks) {
 	setupRenderingTest(hooks);
 
 	test('it renders', async function (assert) {
-		// Set any properties with this.set('myProperty', 'value');
-		// Handle any actions with this.set('myAction', function(val) { ... });
+		window.localStorage.clear();
 
 		await render(hbs`<Ui::Nav::NavLogin />`);
+		assert
+			.dom(this.element.querySelectorAll('button')[1])
+			.hasText('Validate Wallet');
 
-		assert.dom(this.element).hasText('');
-
-		// Template block usage:
-		await render(hbs`
-      <Ui::Nav::NavLogin>
-        template block text
-      </Ui::Nav::NavLogin>
-    `);
-
-		assert.dom(this.element).hasText('template block text');
+		// TODO: Write test to cover token added to localStorage, i.e, conditional logic
 	});
 });
