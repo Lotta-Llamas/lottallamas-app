@@ -7,6 +7,6 @@ module('Integration | Component | ui/nav/logout-form', function (hooks) {
 	setupRenderingTest(hooks);
 	test('it renders', async function (assert) {
 		await render(hbs`<Ui::Nav::LogoutForm />`);
-		assert.dom(this.element).hasText('');
+		assert.dom(this.element.querySelector('button')).hasText('Logout');
 	});
 });
