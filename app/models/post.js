@@ -5,6 +5,8 @@ export default class PostModel extends Model {
 	@attr text;
 	@attr walletId;
 	@attr contentId;
+	@attr createdAt;
+	@attr updatedAt;
 	@belongsTo('content') content;
 	@hasMany('comment') comments;
 }
