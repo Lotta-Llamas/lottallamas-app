@@ -21,6 +21,7 @@ export default class TokenService extends Service {
 		}).then(async (response) => {
 			const settledResponse = await response.json();
 			localStorage.setItem('token', settledResponse.token);
+			this.token = settledResponse.token;
 			localStorage.setItem('address', settledResponse.address);
 			this.router.transitionTo('/content');
 			return;
@@ -31,5 +32,6 @@ export default class TokenService extends Service {
 		localStorage.removeItem('token');
 		localStorage.removeItem('address');
 		this.router.transitionTo('/');
+		this.token = null;
 	}
 }
