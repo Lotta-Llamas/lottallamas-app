@@ -1,0 +1,22 @@
+<div
+	class="nav-login absolute right-0 z-10 mt-2 w-96 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+	role="menu"
+	aria-orientation="vertical"
+	aria-labelledby="user-menu-button"
+	tabindex="-1"
+	{{css-transition 
+		enterClass='transform opacity-0 scale-95'
+        enterActiveClass='transition ease-out duration-100'
+        enterToClass='transform opacity-100 scale-100'
+        leaveClass='transform opacity-100 scale-100'
+        leaveActiveClass='transition ease-in duration-75'
+        leaveToClass='transform opacity-0 scale-95'
+	}}
+	{{on-click-outside this.safeOutside this.deployDropdown}}
+>
+	{{#if this.isLoggedIn}}
+		<Ui::Nav::LogoutForm @isLoggedIn={{this.setLogin}} />
+	{{else}}
+		<Ui::Nav::LoginForm @isLoggedIn={{this.setLogin}} />
+	{{/if}}
+</div>

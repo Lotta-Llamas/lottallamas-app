@@ -33,6 +33,7 @@ export default class UiNavLoginFormComponent extends Component {
 			address: this.address,
 			signature: this.signature,
 		};
+		// TODO: wrap logging in after wallet validates
 		this.token.validateWallet(payload);
 		this.args.isLoggedIn();
 	}
