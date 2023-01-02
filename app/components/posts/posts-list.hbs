@@ -1,5 +1,5 @@
 {{#each @posts as |post|}}
-	<LinkTo @route="post" @model={{post.id}}>
+	<LinkTo @route="tokens.token.posts.post" @model={{post.id}}>
 		<div class="flex justify-between space-x-3">
 			<h1 class="text-xl">{{post.title}}</h1>
 			<time datetime="2021-01-27T16:35" class="flex-shrink-0 whitespace-nowrap text-sm text-gray-500">{{post.createdAt}}</time>

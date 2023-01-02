@@ -7,8 +7,15 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function () {
-	this.route('content', function () {
-		this.route('posts', { path: '/:content_id' });
+	this.route('tokens', function () {
+		this.route('token', { path: '/:token' }, function () {
+			this.route('posts', function () {
+				this.route('create');
+				this.route('index', { path: '/' });
+				this.route('post', { path: '/:post_id' });
+			});
+		});
+		this.route('register');
 	});
-	this.route('post', { path: '/:post_id' });
+	this.route('settings');
 });
