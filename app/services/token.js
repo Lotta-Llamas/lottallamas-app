@@ -23,7 +23,7 @@ export default class TokenService extends Service {
 			localStorage.setItem('token', settledResponse.token);
 			this.token = settledResponse.token;
 			localStorage.setItem('address', settledResponse.address);
-			this.router.transitionTo('/content');
+			this.router.transitionTo('/tokens');
 			return;
 		});
 	}

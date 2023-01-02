@@ -7,7 +7,7 @@ export default class ApplicationRoute extends Route {
 
 	beforeModel(/* transition */) {
 		if (this.token.token && this.token.address) {
-			this.router.transitionTo('content');
+			this.router.transitionTo('/');
 		}
 	}
 }

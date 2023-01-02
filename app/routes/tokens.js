@@ -1,7 +1,7 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 
-export default class ContentRoute extends Route {
+export default class TokensRoute extends Route {
 	constructor() {
 		super(...arguments);
 		this.token = localStorage.getItem('token');

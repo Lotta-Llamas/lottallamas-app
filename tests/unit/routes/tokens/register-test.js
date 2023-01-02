@@ -1,11 +1,11 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'llamas-app/tests/helpers';
 
-module('Unit | Route | content/posts', function (hooks) {
+module('Unit | Route | tokens/register', function (hooks) {
 	setupTest(hooks);
 
 	test('it exists', function (assert) {
-		let route = this.owner.lookup('route:content/posts');
+		let route = this.owner.lookup('route:tokens/register');
 		assert.ok(route);
 	});
 });
