@@ -5,9 +5,11 @@ export default class ApplicationRoute extends Route {
 	@service router;
 	@service token;
 
-	beforeModel(/* transition */) {
-		if (this.token.token && this.token.address) {
+	beforeModel() {
+		if (!this.token.token) {
 			this.router.transitionTo('/');
+		} else {
+			this.router.transitionTo('/tokens');
 		}
 	}
 }

@@ -27,5 +27,5 @@ module('Integration | Component | ui/nav/nav-login', function (hooks) {
 		await click('#login');
 
 		assert.dom(this.element.querySelectorAll('button')[1]).hasText('Logout');
-	})
+	});
 });
