@@ -13,6 +13,7 @@ Router.map(function () {
 			this.route('posts', function () {
 				this.route('create');
 				this.route('post', { path: '/:post_id' });
+				this.route('edit', { path: '/:post_id/edit' });
 			});
 		});
 		this.route('register');
