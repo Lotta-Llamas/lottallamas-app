@@ -3,19 +3,6 @@ import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 
 export default class TokensTokenPostsCreateRoute extends Route {
-	constructor() {
-		super(...arguments);
-		// console.log('hah');
-		// this.router.on('routeWillChange', (transition) => {
-		// 	if (
-		// 		!transition.to.find((route) => route.name === this.routeName) &&
-		// 		!confirm('Are you sure you want to abandon progress?')
-		// 	) {
-		// 		transition.abort();
-		// 	}
-		// });
-	}
-
 	@service router;
 
 	@service store;
@@ -33,16 +20,12 @@ export default class TokensTokenPostsCreateRoute extends Route {
 	@action willTransition(transition) {
 		// eslint-disable-next-line ember/no-controller-access-in-routes
 		const model = this.controller.get('model');
-		if (
-			model.hasDirtyAttributes &&
-			confirm('Are you sure you want to abandon progress?')
-		) {
-			console.log('Record destroyed');
-			if (model) {
+		if (model.hasDirtyAttributes) {
+			if (confirm('Are you sure you want to abandon progress?') && model) {
 				model.rollbackAttributes();
+			} else {
+				transition.abort();
 			}
-		} else {
-			transition.abort();
 		}
 	}
 }
