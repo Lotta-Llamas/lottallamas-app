@@ -4,7 +4,7 @@ import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { faker } from '@faker-js/faker';
 
-module('Integration | Component | forms/create-post', function (hooks) {
+module('Integration | Component | forms/post', function (hooks) {
 	setupRenderingTest(hooks);
 	test('it renders', async function (assert) {
 		const post = {
@@ -17,7 +17,7 @@ module('Integration | Component | forms/create-post', function (hooks) {
 			updatedAt: faker.date.recent(),
 		};
 		this.set('post', post);
-		await render(hbs`<Forms::CreatePost @post={{this.post}}/>`);
+		await render(hbs`<Forms::Post @post={{this.post}}/>`);
 		assert.dom(this.element.querySelector('#title')).hasValue(post.title);
 		assert.dom(this.element.querySelector('textarea')).hasValue(post.text);
 	});
