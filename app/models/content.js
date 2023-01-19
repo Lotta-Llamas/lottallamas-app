@@ -6,5 +6,5 @@ export default class ContentModel extends Model {
 	@attr description;
 	@attr isPublic;
 	@attr token;
-	@hasMany('post') posts;
+	@hasMany('post', { async: true, inverse: 'content' }) posts;
 }

@@ -7,13 +7,12 @@ export default class FormsPostComponent extends Component {
 
 	@action save() {
 		event.preventDefault();
-		const contentId = this.args.post.contentId;
 		this.args.post.save().then(() => {
-			this.router.transitionTo('tokens.token', contentId);
+			this.router.transitionTo('tokens.token.posts.post', this.args.post);
 		});
 	}
 
 	@action cancel() {
-		this.router.transitionTo('tokens.token', this.args.post.contentId);
+		this.router.transitionTo('tokens.token.posts.post', this.args.post);
 	}
 }

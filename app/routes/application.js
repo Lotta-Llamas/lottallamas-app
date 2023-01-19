@@ -8,8 +8,6 @@ export default class ApplicationRoute extends Route {
 	beforeModel() {
 		if (!this.token.token) {
 			this.router.transitionTo('/');
-		} else {
-			this.router.transitionTo('/tokens');
 		}
 	}
 }
