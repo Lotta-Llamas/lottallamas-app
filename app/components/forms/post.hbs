@@ -5,14 +5,14 @@
 				<div class="sm:col-span-4">
 					<label for="title" class="block text-sm font-medium text-gray-700">Title</label>
 					<div class="mt-1 flex rounded-md shadow-sm">
-						<Input @value={{this.args.post.title}} @type="text" name="title" id="title" autocomplete="title" class="block w-full min-w-0 flex-1 rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
+						<Input @value={{@post.title}} @type="text" name="title" id="title" autocomplete="title" class="block w-full min-w-0 flex-1 rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
 					</div>
 				</div>
 
 				<div class="sm:col-span-6">
 					<label for="content" class="block text-sm font-medium text-gray-700">Content</label>
 					<div class="mt-1">
-						<Textarea @value={{this.args.post.text}}  id="content" name="content" rows="15" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
+						<Textarea @value={{@post.text}}  id="content" name="content" rows="15" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
 					</div>
 				</div>
 			</div>
