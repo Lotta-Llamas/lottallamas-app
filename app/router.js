@@ -9,10 +9,11 @@ export default class Router extends EmberRouter {
 Router.map(function () {
 	this.route('tokens', function () {
 		this.route('token', { path: '/:token' }, function () {
+			this.route('index', { path: '/' });
 			this.route('posts', function () {
 				this.route('create');
-				this.route('index', { path: '/' });
 				this.route('post', { path: '/:post_id' });
+				this.route('edit', { path: '/:post_id/edit' });
 			});
 		});
 		this.route('register');

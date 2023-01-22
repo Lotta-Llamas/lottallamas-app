@@ -4,5 +4,5 @@ export default class CommentModel extends Model {
 	@attr comment;
 	@attr postId;
 	@attr walletId;
-	@belongsTo('post') post;
+	@belongsTo('post', { async: true, inverse: 'comments' }) post;
 }

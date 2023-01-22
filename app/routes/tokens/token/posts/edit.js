@@ -1,20 +1,12 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
 
-export default class TokensTokenPostsCreateRoute extends Route {
-	@service router;
-
+export default class TokensTokenPostsPostEditRoute extends Route {
 	@service store;
 
-	@service token;
-
-	model() {
-		return this.store.createRecord('post', {
-			content: this.modelFor('tokens.token'),
-			contentId: this.modelFor('tokens.token').id,
-			walletId: this.token.address,
-		});
+	model(params) {
+		return this.store.findRecord('post', params.post_id);
 	}
 
 	@action willTransition(transition) {
