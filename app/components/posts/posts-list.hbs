@@ -1,16 +1,32 @@
-<ul role="list" class="divide-y divide-gray-200">
-	{{#each @posts as |post|}}
-		<li class="py-4">
-			<LinkTo @route="tokens.token.posts.post" @model={{post.id}}>
-				<div class="flex justify-between space-x-3">
-					<h1 class="text-xl">{{post.title}}</h1>
-					<time datetime="2021-01-27T16:35" class="flex-shrink-0 whitespace-nowrap text-sm text-gray-500">{{post.createdAt}}</time>
-				</div>
-				<p class="wallet-id text-sm text-gray-500">Posted By: {{post.walletId}}</p>
-				<div class="mt-1">
-					<p class="post-text text-sm text-gray-600 line-clamp-2">{{post.text}}</p>
-				</div>
-			</LinkTo>
-		</li>
-	{{/each}}
-</ul>
+{{#if @posts.length}}
+	<ul role="list" class="divide-y divide-gray-200">
+		{{#each @posts as |post|}}
+			<li class="py-4">
+				<LinkTo @route="tokens.token.posts.post" @model={{post.id}}>
+					<div class="flex justify-between space-x-3">
+						<h1 class="text-xl">{{post.title}}</h1>
+						<time datetime="2021-01-27T16:35" class="flex-shrink-0 whitespace-nowrap text-sm text-gray-500">{{post.createdAt}}</time>
+					</div>
+					<p class="wallet-id text-sm text-gray-500">Posted By: {{post.walletId}}</p>
+					<div class="mt-1">
+						<p class="post-text text-sm text-gray-600 line-clamp-2">{{post.text}}</p>
+					</div>
+				</LinkTo>
+			</li>
+		{{/each}}
+	</ul>
+{{else}}
+<div class="text-center">
+	<h3 class="mt-2 text-sm font-medium text-gray-900">No Posts</h3>
+	{{!-- <p class="mt-1 text-sm text-gray-500">Get started by creating a new Post.</p>
+	<div class="mt-6">
+		<button type="button" class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+		<!-- Heroicon name: mini/plus -->
+		<svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+			<path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+		</svg>
+			New Post
+		</button>
+	</div> --}}
+	</div>
+{{/if}}
