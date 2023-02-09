@@ -1,0 +1,21 @@
+<div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+	<div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+	{{css-transition 
+		enterClass='transform opacity-0 scale-95'
+        enterActiveClass='transition ease-out duration-300'
+        enterToClass='transform opacity-100 scale-100'
+        leaveClass='transform opacity-100 scale-100'
+        leaveActiveClass='transition ease-in duration-200'
+        leaveToClass='transform opacity-0 scale-95'
+	}}
+	></div>
+	<div class="fixed inset-0 z-10 overflow-y-auto">
+		<div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+			<div class="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+				<div>
+					{{yield (hash context=this.context actions=this.actions)}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
