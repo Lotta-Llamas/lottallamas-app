@@ -1,20 +1,24 @@
 {{page-title "Comment"}}
 <Modals::GenericModal as |modal|>
 	<modal.context>
-		<Forms::Comment @comment={{this.model}} />
+		<Forms::Comment @comment={{@model}} @hasSaved={{this.hasSaved}} as |submit create discard delete|>
+			<div class="flex">
+				<div class="grow">
+					<div class="mt-2 flex justify-start">
+						<button type="button" class="inline-flex items-center justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 font-medium text-red-700 hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:text-sm" {{on 'click' delete}}>Delete comment</button>
+					</div>
+				</div>
+				<div class="grow">
+					<div class="mt-2 flex justify-end">
+						<button class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" type="button" {{on 'click' discard}}>Discard</button>
+					</div>
+				</div>
+				<div>
+					<div class="mt-2 ml-3 flex justify-end">
+						<button class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" type="button" {{on 'click' submit}}>Submit</button>
+					</div>
+				</div>
+			</div>
+		</Forms::Comment>
 	</modal.context>
-	<modal.actions>
-		<div class="flex">
-			<div class="grow">
-				<div class="mt-2 flex justify-end">
-					<button class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" type="button" {{on 'click' this.closeEdit}}>Discard</button>
-				</div>
-			</div>
-			<div>
-				<div class="mt-2 ml-3 flex justify-end">
-					<button class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" type="button" {{on 'click' this.submitComment }}>Post</button>
-				</div>
-			</div>
-		</div>
-	</modal.actions>
 </Modals::GenericModal>

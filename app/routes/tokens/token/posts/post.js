@@ -13,11 +13,6 @@ export default class TokensTokenPostsPostRoute extends Route {
 			contentId: post.contentId,
 		});
 
-		const newComment = await this.store.createRecord('comment', {
-			walletId: post.walletId,
-			postId: post.id,
-		});
-
-		return hash({ post, comments, newComment });
+		return hash({ post, comments });
 	}
 }

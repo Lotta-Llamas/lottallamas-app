@@ -1,19 +1,16 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 
 export default class TokensTokenPostsPostCommentsCommentController extends Controller {
 	@service router;
 
 	@service store;
 
-	@action closeEdit() {
-		this.router.transitionTo('tokens.token.posts.post');
-	}
+	@tracked commentText = null;
 
-	@action submitComment() {
-		this.model.save().then(() => {
-			this.router.transitionTo('tokens.token.posts.post');
-		});
+	@action hasSaved() {
+		this.router.transitionTo('tokens.token.posts.post');
 	}
 }

@@ -1,7 +1,7 @@
 <div>
 	<label for="comment" class="block text-sm font-medium text-gray-700 sr-only">Add your comment</label>
 	<div class="mt-1">
-		<Textarea @value={{@comment.comment}} rows="4" name="comment" id="comment" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Add your comment..."></Textarea>
+		<Textarea @value={{this.text}} rows="4" name="comment" id="comment" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Add your comment..."></Textarea>
 	</div>
 </div>
-{{yield (action "submit")}}
+{{yield (fn this.submit @comment) (fn this.create @comment) (fn this.discard @comment) (fn this.delete @comment)}}
