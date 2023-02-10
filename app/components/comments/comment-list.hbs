@@ -1,5 +1,5 @@
 <ul role="list" class="divide-y divide-gray-200">
-	{{#each this.args.comments as |comment|}}
+	{{#each @comments as |comment|}}
 		<Comments::CommentListItem @comment={{comment}} />
 	{{/each}}
 </ul>
