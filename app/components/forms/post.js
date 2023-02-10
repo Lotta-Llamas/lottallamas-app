@@ -10,12 +10,12 @@ export default class FormsPostComponent extends Component {
 	@action save() {
 		event.preventDefault();
 		this.args.post.save().then(() => {
-			this.router.transitionTo('tokens.token.posts.post', this.args.post);
+			this.router.transitionTo('tokens.token.posts.post', this.args.post.id);
 		});
 	}
 
 	@action cancel() {
-		this.router.transitionTo('tokens.token');
+		this.router.transitionTo('tokens.token.posts.post', this.args.post.id);
 	}
 
 	@action delete() {
