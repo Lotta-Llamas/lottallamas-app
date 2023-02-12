@@ -12,8 +12,12 @@ Router.map(function () {
 			this.route('index', { path: '/' });
 			this.route('posts', function () {
 				this.route('create');
-				this.route('post', { path: '/:post_id' });
 				this.route('edit', { path: '/:post_id/edit' });
+				this.route('post', { path: '/:post_id' }, function () {
+					this.route('comments', function () {
+						this.route('comment', { path: '/:comment_id' }, function () {});
+					});
+				});
 			});
 		});
 		this.route('register');
