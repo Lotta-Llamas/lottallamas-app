@@ -8,6 +8,7 @@ export default helper(function formatTime(positional /*, named*/) {
 		day: 'numeric',
 		hour: 'numeric',
 		minute: 'numeric',
+		timeZone: 'America/New_York',
 	});
 
 	return date;
