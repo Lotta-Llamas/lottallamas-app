@@ -2,28 +2,27 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'llamas-app/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import { faker } from '@faker-js/faker';
 
 module(
 	'Integration | Component | comments/comment-list-item',
 	function (hooks) {
 		setupRenderingTest(hooks);
 
+		const comment = {
+			id: faker.datatype.uuid(),
+			comment: faker.lorem.sentence(5),
+			postId: faker.datatype.uuid(),
+			walletId: faker.datatype.uuid(),
+			createdAt: faker.date.recent(),
+			updatedAt: faker.date.recent(),
+		};
+
 		test('it renders', async function (assert) {
-			// Set any properties with this.set('myProperty', 'value');
-			// Handle any actions with this.set('myAction', function(val) { ... });
+			this.set('comment', comment);
+			await render(hbs`<Comments::CommentListItem  @comment={{this.comment}} />`);
 
-			await render(hbs`<Comments::CommentListItem />`);
-
-			assert.dom(this.element).hasText('');
-
-			// Template block usage:
-			await render(hbs`
-      <Comments::CommentListItem>
-        template block text
-      </Comments::CommentListItem>
-    `);
-
-			assert.dom(this.element).hasText('template block text');
+			assert.dom(this.element).hasText(`${comment.walletId} ${comment.comment}`);
 		});
 	}
 );

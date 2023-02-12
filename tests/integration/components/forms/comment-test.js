@@ -2,25 +2,37 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'llamas-app/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import { faker } from '@faker-js/faker';
 
 module('Integration | Component | forms/comment', function (hooks) {
 	setupRenderingTest(hooks);
+	const comment = {
+		id: faker.datatype.uuid(),
+		comment: faker.lorem.sentence(5),
+		postId: faker.datatype.uuid(),
+		walletId: faker.datatype.uuid(),
+		createdAt: faker.date.recent(),
+		updatedAt: faker.date.recent(),
+	};
 
 	test('it renders', async function (assert) {
-		// Set any properties with this.set('myProperty', 'value');
-		// Handle any actions with this.set('myAction', function(val) { ... });
+		this.set('comment', comment);
+		this.set('hasSaved', () => {
+			console.log('has saved');
+		});
 
-		await render(hbs`<Forms::Comment />`);
-
-		assert.dom(this.element).hasText('');
-
-		// Template block usage:
 		await render(hbs`
-      <Forms::Comment>
-        template block text
-      </Forms::Comment>
-    `);
+			<Forms::Comment @comment={{this.comment}} @hasSaved={{this.hasSaved}} as |submit create discard delete|>
+				<div class="flex">
+					<div class="grow">
+						<div class="mt-2 ml-3 flex justify-end">
+							<button {{on 'click' create}} class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" type="button">Add Comment</button>
+						</div>
+					</div>
+				</div>
+			</Forms::Comment>
+		`);
 
-		assert.dom(this.element).hasText('template block text');
+		assert.dom(this.element).hasText('Add your comment Add Comment');
 	});
 });
