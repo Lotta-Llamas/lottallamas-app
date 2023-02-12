@@ -15,7 +15,11 @@ export default class FormsPostComponent extends Component {
 	}
 
 	@action cancel() {
-		this.router.transitionTo('tokens.token.posts.post', this.args.post.id);
+		if (this.args.post.id) {
+			this.router.transitionTo('tokens.token.posts.post', this.args.post.id);
+		} else {
+			this.router.transitionTo('tokens.token');
+		}
 	}
 
 	@action delete() {
