@@ -24,7 +24,7 @@ module('Integration | Component | forms/comment', function (hooks) {
 		});
 
 		await render(hbs`
-			<Forms::Comment @comment={{this.comment}} @hasSaved={{this.hasSaved}} as |submit create discard delete|>
+			<Forms::Comment @comment={{this.comment}} @hasSaved={{this.hasSaved}} as |submit create|>
 				<div class="flex">
 					<div class="grow">
 						<div class="mt-2 ml-3 flex justify-end">
