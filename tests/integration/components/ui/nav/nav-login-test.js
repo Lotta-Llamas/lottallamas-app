@@ -11,10 +11,10 @@ module('Integration | Component | ui/nav/nav-login', function (hooks) {
 
 		await render(hbs`<Ui::Nav::NavLogin />`);
 
-		await click('#login');
+		await click('svg');
 
 		assert
-			.dom(this.element.querySelectorAll('button')[1])
+			.dom(this.element.querySelectorAll('button')[0])
 			.hasText('Validate Wallet');
 	});
 
@@ -24,8 +24,8 @@ module('Integration | Component | ui/nav/nav-login', function (hooks) {
 
 		await render(hbs`<Ui::Nav::NavLogin />`);
 
-		await click('#login');
+		await click('#login > svg');
 
-		assert.dom(this.element.querySelectorAll('button')[1]).hasText('Logout');
+		assert.dom(this.element.querySelectorAll('button')[0]).hasText('Logout');
 	});
 });
