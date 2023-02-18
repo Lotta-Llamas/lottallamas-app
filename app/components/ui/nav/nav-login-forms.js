@@ -8,7 +8,6 @@ export default class UiNavNavLoginFormsComponent extends Component {
 		super(owner, args);
 		this.safeOutside = 'login';
 		this.isLoggedIn = this.token.token && this.token.address ? true : false;
-		console.log('nav login form');
 	}
 	@service token;
 	@service router;
