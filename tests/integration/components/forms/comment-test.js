@@ -38,6 +38,7 @@ module('Integration | Component | forms/comment', function (hooks) {
 		// TODO: add saving when Mirage implementation
 		// await click('.submit-comment');
 
+		// TODO: add better test coverage.  This is a joke.
 		assert.dom(this.element).hasText('Add your comment Add Comment');
 	});
 });

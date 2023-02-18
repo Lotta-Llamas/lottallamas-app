@@ -4,4 +4,4 @@
 		<Textarea @value={{this.text}} rows="4" name="comment" id="comment" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Add your comment..."></Textarea>
 	</div>
 </div>
-{{yield (fn this.submit @comment) (fn this.create @comment) (fn this.discard @comment) (fn this.delete @comment)}}
+{{yield (fn this.submit @comment) (fn this.create @comment) (fn this.discard @comment) (fn this.delete @comment) this.isDisabled}}
