@@ -12,6 +12,10 @@ export default class FormsCommentComponent extends Component {
 
 	@service store;
 
+	get isDisabled() {
+		return !this.text ? true : false;
+	}
+
 	@action create() {
 		this.store
 			.createRecord('comment', {

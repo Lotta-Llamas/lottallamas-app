@@ -7,6 +7,10 @@ export default class FormsPostComponent extends Component {
 
 	@service router;
 
+	get isDisabled() {
+		return !this.args.post.title || !this.args.post.text ? true : false;
+	}
+
 	@action save() {
 		event.preventDefault();
 		this.args.post.save().then(() => {
