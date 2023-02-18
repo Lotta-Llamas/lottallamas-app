@@ -5,7 +5,7 @@ import { tracked } from '@glimmer/tracking';
 export default class UiNavNavLoginComponent extends Component {
 	@tracked isOpen = false;
 
-	@action deployDropdown() {
-		this.isOpen = this.isOpen ? false : true;
+	@action deployDropdown(bool) {
+		this.isOpen = bool;
 	}
 }
