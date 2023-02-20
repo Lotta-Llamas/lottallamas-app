@@ -1,6 +1,7 @@
 import Service from '@ember/service';
 import fetch from 'fetch';
 import { service } from '@ember/service';
+import ENV from 'llamas-app/config/environment';
 
 export default class TokenService extends Service {
 	constructor() {
@@ -12,7 +13,7 @@ export default class TokenService extends Service {
 	@service router;
 
 	validateWallet(payload) {
-		fetch('http://localhost:3100/api/validate-wallet', {
+		fetch(`${ENV.host}/api/validate-wallet`, {
 			method: 'POST',
 			headers: {
 				'Content-type': 'application/json',
