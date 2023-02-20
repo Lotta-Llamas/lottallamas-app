@@ -6,6 +6,13 @@ const tailwind = require('tailwindcss');
 
 module.exports = function (defaults) {
 	const app = new EmberApp(defaults, {
+		'@embroider/macros': {
+			setConfig: {
+				'@ember-data/store': {
+					polyfillUUID: true,
+				},
+			},
+		},
 		postcssOptions: {
 			compile: {
 				// track changes in template, css, scss, and tailwind config files
