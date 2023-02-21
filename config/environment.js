@@ -6,6 +6,7 @@ module.exports = function (environment) {
 		environment,
 		rootURL: '/',
 		locationType: 'history',
+		host: 'http://localhost:3100',
 		EmberENV: {
 			EXTEND_PROTOTYPES: false,
 			FEATURES: {
@@ -42,6 +43,7 @@ module.exports = function (environment) {
 
 	if (environment === 'production') {
 		// here you can enable a production-specific feature
+		ENV.host = 'http://api.lottallamas.com';
 	}
 
 	return ENV;
