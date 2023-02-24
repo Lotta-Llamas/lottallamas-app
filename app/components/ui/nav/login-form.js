@@ -1,5 +1,6 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 import { service } from '@ember/service';
 
 // Stolen from https://attacomsian.com/blog/javascript-generate-random-string
@@ -22,6 +23,14 @@ export default class UiNavLoginFormComponent extends Component {
 		this.message = random();
 		this.address = null;
 		this.signature = null;
+	}
+
+	@tracked address = null;
+
+	@tracked signature = null;
+
+	get isDisabled() {
+		return !this.address || !this.signature ? true : false;
 	}
 
 	@service token;

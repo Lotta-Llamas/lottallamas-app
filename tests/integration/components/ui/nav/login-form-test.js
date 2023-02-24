@@ -9,4 +9,10 @@ module('Integration | Component | ui/nav/login-form', function (hooks) {
 		await render(hbs`<Ui::Nav::LoginForm />`);
 		assert.dom(this.element.querySelector('button')).hasText('Validate Wallet');
 	});
+	// TODO: Add some more test coverage(refactor)
+	test('it disabled button if missing inputs', async function (assert) {
+		localStorage.clear();
+		await render(hbs`<Ui::Nav::LoginForm />`);
+		assert.dom(this.element.querySelector('button')).hasClass('opacity-25');
+	});
 });
