@@ -43,7 +43,7 @@ module.exports = function (environment) {
 
 	if (environment === 'production') {
 		// here you can enable a production-specific feature
-		ENV.host = 'http://api.lottallamas.com';
+		ENV.host = 'https://api.lottallamas.com';
 	}
 
 	return ENV;
