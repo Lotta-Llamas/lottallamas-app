@@ -1,20 +1,18 @@
-{{#if (eq this.router.currentRouteName "public.index")}}
-	{{#each @posts as |post|}}
-		{{#if post.isPublic}}
-			<ul role="list" class="divide-y divide-gray-200">
-				<li class="py-4">
-					<LinkTo @route="public.post" @model={{post.id}}>
-						<div class="flex justify-between space-x-3">
-							<h1 class="text-xl">{{post.title}}</h1>
-							<time datetime={{post.createdAt}} class="flex-shrink-0 whitespace-nowrap text-sm text-gray-500">{{format-time post.createdAt}}</time>
-						</div>
-						<p class="wallet-id text-sm text-gray-500">Posted By: {{post.walletId}}</p>
-						<div class="mt-1">
-							<p class="post-text text-sm text-gray-600 line-clamp-2">{{post.text}}</p>
-						</div>
-					</LinkTo>
-				</li>
-			</ul>
-		{{/if}}
-	{{/each}}
-{{/if}}
+{{#each @posts as |post|}}
+	{{#if post.isPublic}}
+		<ul role="list" class="divide-y divide-gray-200">
+			<li class="py-4">
+				<LinkTo @route="public.post" @model={{post.id}}>
+					<div class="flex justify-between space-x-3">
+						<h1 class="text-xl">{{post.title}}</h1>
+						<time datetime={{post.createdAt}} class="flex-shrink-0 whitespace-nowrap text-sm text-gray-500">{{format-time post.createdAt}}</time>
+					</div>
+					<p class="wallet-id text-sm text-gray-500">Posted By: {{post.walletId}}</p>
+					<div class="mt-1">
+						<p class="post-text text-sm text-gray-600 line-clamp-2">{{post.text}}</p>
+					</div>
+				</LinkTo>
+			</li>
+		</ul>
+	{{/if}}
+{{/each}}
