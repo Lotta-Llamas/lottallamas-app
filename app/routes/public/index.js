@@ -7,10 +7,10 @@ export default class PublicIndexRoute extends Route {
 	@service store;
 
 	async model() {
-        const response = await fetch(`${ENV.host}/api/public`)
-        const { posts } = await response.json();
+		const response = await fetch(`${ENV.host}/api/public`)
+		const { posts } = await response.json();
 
-        this.store.pushPayload('post', { posts: posts });
+		this.store.pushPayload('post', { posts: posts });
 
 		return hash({
 			posts
