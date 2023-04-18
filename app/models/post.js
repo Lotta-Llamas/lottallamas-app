@@ -7,6 +7,7 @@ export default class PostModel extends Model {
 	@attr contentId;
 	@attr createdAt;
 	@attr updatedAt;
+	@attr isPublic;
 	@belongsTo('content', { async: true, inverse: 'posts' }) content;
 	@hasMany('comment', { async: true, inverse: 'post' }) comments;
 }

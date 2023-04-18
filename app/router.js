@@ -23,4 +23,8 @@ Router.map(function () {
 		this.route('register');
 	});
 	this.route('settings');
+	this.route('public', { path: '/' }, function () {
+		this.route('index', { path: '/' });
+		this.route('post', { path: '/public/:post_id' });
+	});
 });
