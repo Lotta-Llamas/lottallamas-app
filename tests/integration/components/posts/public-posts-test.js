@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'llamas-app/tests/helpers';
-import { render } from '@ember/test-helpers';
+import { render, visit } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { faker } from '@faker-js/faker';
 
@@ -28,9 +28,10 @@ module('Integration | Component | posts/public-posts', function (hooks) {
 				updatedAt: faker.date.recent(),
 			},
 		];
+
 		this.set('posts', posts);
 
-		await render(hbs`<Posts::PublicPosts @posts={{posts}} />`);
+		await render(hbs`<Posts::PublicPosts @posts={{this.posts}} />`);
 
 		const title = this.element.querySelectorAll('.text-xl');
 		const walletId = this.element.querySelectorAll('.wallet-id');
@@ -38,9 +39,9 @@ module('Integration | Component | posts/public-posts', function (hooks) {
 		assert.dom(title[0]).hasText(posts[0].title);
 		assert.dom(walletId[0]).hasText(`Posted By: ${posts[0].walletId}`);
 		assert.dom(paragraph[0]).hasText(posts[0].text);
-		assert.dom(title[1]).hasText(posts[1].title);
-		assert.dom(walletId[1]).hasText(`Posted By: ${posts[1].walletId}`);
-		assert.dom(paragraph[1]).hasText(posts[1].text);
-
+		// Doesnt show private posts
+		assert.equal(1, title.length)
+		assert.equal(1, walletId.length)
+		assert.equal(1, paragraph.length)
 	});
 });
