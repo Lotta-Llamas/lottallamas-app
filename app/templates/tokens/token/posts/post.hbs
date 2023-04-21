@@ -1,5 +1,5 @@
 {{page-title "Post"}}
-<Posts::Post @post={{@model.post}}/>
+<Posts::Post @post={{@model.post}} @canEdit={{true}}/>
 
 <Forms::Comment @comment={{@model}} @hasSaved={{this.hasSaved}} as |submit create discard delete isDisabled|>
 	<div class="flex">

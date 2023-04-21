@@ -17,27 +17,45 @@ module('Integration | Component | posts/post', function (hooks) {
 
 	test('it renders', async function (assert) {
 		this.set('post', post);
-		await render(hbs`<Posts::Post @post={{this.post}}/>`);
+		await render(hbs`<Posts::Post @post={{this.post}} />`);
 		const h1 = this.element.querySelector('h1');
 		assert.dom('h1').hasClass('text-xl');
 		assert.dom(h1).hasText(post.title);
 		assert.dom(this.element.querySelector('p')).hasText(post.text);
 	});
 
-	test('it shows edit button', async function (assert) {
+	test('it shows if user is owner of post', async function (assert) {
 		const token = this.owner.lookup('service:token');
 		token.address = post.walletId;
 		this.set('post', post);
-		await render(hbs`<Posts::Post @post={{this.post}}/>`);
+		await render(hbs`<Posts::Post @post={{this.post}} @canEdit={{true}} />`);
 
 		assert.dom(this.element.querySelector('button')).hasClass('edit-post');
+	});
+
+	test('it hides edit is canEdit flag is not passed in', async function (assert) {
+		const token = this.owner.lookup('service:token');
+		token.address = post.walletId;
+		this.set('post', post);
+		await render(hbs`<Posts::Post @post={{this.post}} />`);
+
+		assert.dom(this.element.querySelector('button')).doesNotExist();
+	});
+
+	test('it hides edit button when flag passed in is false', async function (assert) {
+		const token = this.owner.lookup('service:token');
+		token.address = post.walletId;
+		this.set('post', post);
+		await render(hbs`<Posts::Post @post={{this.post}} @canEdit={{false}} />`);
+
+		assert.dom(this.element.querySelector('button')).doesNotExist();
 	});
 
 	test('it hides edit button', async function (assert) {
 		const token = this.owner.lookup('service:token');
 		token.address = '1234';
 		this.set('post', post);
-		await render(hbs`<Posts::Post @post={{this.post}}/>`);
+		await render(hbs`<Posts::Post @post={{this.post}} @canEdit={{true}} />`);
 
 		assert.dom(this.element.querySelector('button')).doesNotExist();
 	});
