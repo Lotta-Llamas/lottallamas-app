@@ -21,7 +21,7 @@
     "start": "ember serve --proxy http://localhost:3100",
     "test": "concurrently \"npm:lint\" \"npm:test:*\" --names \"lint,test:\"",
     "test:ember": "ember test",
-    "release-to-prod": "scp -i ~/.ssh/llamas -r /Users/tom/Desktop/projects/w/llamas-app/dist/* root@167.172.224.78:/var/www/html/"
+    "release-to-prod": "scp -i ~/.ssh/id_rsa -r /Users/eats/Desktop/projects/Llamas/lottallamas-app/dist/* root@167.172.224.78:/var/www/html/"
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
@@ -56,6 +56,7 @@
     "ember-resolver": "^8.0.3",
     "ember-source": "~4.9.1",
     "ember-template-lint": "^5.2.0",
+    "ember-truth-helpers": "^3.1.1",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-ember": "^11.2.1",
@@ -74,8 +75,5 @@
   },
   "ember": {
     "edition": "octane"
-  },
-  "dependencies": {
-    "ember-truth-helpers": "^3.1.1"
   }
 }
