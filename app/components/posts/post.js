@@ -7,8 +7,8 @@ export default class PostsPostComponent extends Component {
 
 	@service token;
 
-	get canEdit() {
-		return this.token.address === this.args.post.walletId;
+	get isOwner() {
+		return (this.token.address === this.args.post.walletId);
 	}
 
 	@action editPost() {
