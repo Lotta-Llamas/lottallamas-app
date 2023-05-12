@@ -75,5 +75,8 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "daisyui": "^2.51.6"
   }
 }
