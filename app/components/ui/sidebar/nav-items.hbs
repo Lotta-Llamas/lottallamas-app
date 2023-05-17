@@ -1,12 +1,14 @@
-<nav aria-label="Sidebar" class="sticky top-6 divide-y divide-gray-300">
-	<ul role="list" class="divide-y divide-gray-200">
-		{{#each @items as |item|}}
-			<LinkTo @route="tokens.token.index" @model={{item.id}}>
-				<li class="py-1">
-					<h3 class="text-base truncate">{{item.token}}</h3>
-					<p class="text-xs text-gray-500 truncate">{{item.walletId}}</p>
-				</li>
-			</LinkTo>
-		{{/each}}
-	</ul>
-</nav>
+<div class="hidden lg:col-span-3 lg:block xl:col-span-2">
+	<nav aria-label="Sidebar" class="sticky top-6 divide-y divide-gray-300">
+		<ul role="list" class="divide-y divide-gray-200">
+			{{#each @items as |item|}}
+				<LinkTo @route="tokens.token.index" @model={{item.id}}>
+					<li class="py-1">
+						<h3 class="text-base truncate">{{item.token}}</h3>
+						<p class="text-xs text-gray-500 truncate">{{item.walletId}}</p>
+					</li>
+				</LinkTo>
+			{{/each}}
+		</ul>
+	</nav>
+</div>
