@@ -9,12 +9,26 @@ export default class TokensRoute extends Route {
 	}
 
 	@service store;
+	@service router;
+	@service('token') tokenService;
 
-	model() {
+	beforeModel() {
+		if (!this.tokenService.token) {
+			this.router.transitionTo('/');
+		}
+	}
+
+	async model() {
 		if (!this.token || !this.address) {
 			return false;
 		}
 
-		return this.store.findAll('content');
+		const content = await this.store.findAll('content');
+
+		if (content.length) {
+			this.router.transitionTo('tokens.token', content[0].id)
+		}
+
+		return content;
 	}
 }
