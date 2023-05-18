@@ -1,7 +1,16 @@
 {{page-title "Tokens"}}
-<div class="py-6">
-	<div class="mx-auto max-w-3xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-12 lg:gap-8 lg:px-8">
-		<Ui::Sidebar::NavItems @items={{this.model}}/>
-		{{outlet}}
+{{#if this.model.length}}
+	<div class="py-6">
+		<div class="mx-auto max-w-3xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-12 lg:gap-8 lg:px-8">
+			<Ui::Sidebar::NavItems @items={{this.model}}/>
+			{{outlet}}
+		</div>
 	</div>
-</div>
+{{else}}
+	<div class="p-6 text-center">
+		<h3 class="mt-2 text-sm font-medium p-6">It looks like your wallet does not contain any active assets</h3>
+		<LinkTo @route='public'>
+			<button type="button" class="btn btn-outline btn-primary">View public posts</button>
+		</LinkTo>
+	</div>
+{{/if}}
