@@ -1,4 +1,4 @@
-<form class="space-y-8">
+<form class="space-y-8 form-control">
 	<div class="space-y-8">
 		<div>
 			<div class="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
@@ -10,10 +10,10 @@
 				</div>
 
 				<div class="col-span-6">
-						<label for="public" class="text-sm font-medium">Public</label>
-						<div class="mt-1 flex rounded-md">
-							<Input @checked={{@post.isPublic}} @type="checkbox" id="public" name="public" class="checkbox" />
-						</div>
+					<label for="public" class="text-sm font-medium">Public</label>
+					<div class="mt-1 flex rounded-md">
+						<Input @checked={{@post.isPublic}} @type="checkbox" id="public" name="public" class="checkbox" />
+					</div>
 				</div>
 
 				<div class="col-span-6">
