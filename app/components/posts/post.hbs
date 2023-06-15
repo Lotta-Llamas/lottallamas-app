@@ -2,7 +2,7 @@
 	<div class="mx-auto max-w-3xl">
 		<div>
 			<div class="flex">
-				<h1 class="text-xl flex-1">{{@post.title}}</h1>
+				<h1 class="text-xl flex-1 py-1">{{@post.title}}</h1>
 				{{#if (and @canEdit this.isOwner)}}
 					<button type="button" {{on 'click' this.editPost}} class="edit-post">
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -12,6 +12,6 @@
 				{{/if}}
 			</div>
 		</div>
-		<p class="text-sm text-gray-500">{{@post.text}}</p>
+		<p class="text-sm text-gray-500 py-3">{{@post.text}}</p>
 	</div>
 </div>

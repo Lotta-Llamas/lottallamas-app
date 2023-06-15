@@ -1,5 +1,5 @@
 {{#if @posts.length}}
-	<ul role="list" class="divide-y divide-gray-200">
+	<ul role="list">
 		{{#each @posts as |post|}}
 			<li class="py-4">
 				<LinkTo @route="tokens.token.posts.post" @model={{post.id}}>
@@ -13,6 +13,7 @@
 					</div>
 				</LinkTo>
 			</li>
+			<div class="divider"></div>
 		{{/each}}
 	</ul>
 {{else}}
